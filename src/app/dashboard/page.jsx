@@ -52,18 +52,29 @@ export default function DashboardPage() {
         )}
 
         {user?.role === "Admin" && (
-          <Link
-            href="/dashboard/campaign-approvals"
-            className="inline-block mt-4 mr-3 border px-4 py-2 rounded"
-          >
-            Campaign Approvals
-          </Link>
+          <>
+            <Link href="/dashboard/admin-home" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Admin Home
+            </Link>
+            <Link href="/dashboard/campaign-approvals" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Campaign Approvals
+            </Link>
+            <Link href="/dashboard/withdrawal-requests" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Withdrawal Requests
+            </Link>
+            <Link href="/dashboard/manage-users" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Manage Users
+            </Link>
+            <Link href="/dashboard/manage-campaigns" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Manage Campaigns
+            </Link>
+           </> 
         )}
 
-        <button onClick={logoutUser} className="mt-4 bg-red-600 text-white px-4 py-2 rounded">
-          Logout
-        </button>
-      </div>
+            <button onClick={logoutUser} className="mt-4 bg-red-600 text-white px-4 py-2 rounded">
+              Logout
+            </button>
+          </div>
     </PrivateRoute>
   );
 }

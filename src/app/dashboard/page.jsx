@@ -17,7 +17,6 @@ export default function DashboardPage() {
 
         {user?.role === "Creator" && (
           <>
-
             <Link
               href="/dashboard/add-campaign"
               className="inline-block mt-4 mr-3 bg-slate-900 text-white px-4 py-2 rounded"
@@ -32,8 +31,16 @@ export default function DashboardPage() {
               My Campaigns
             </Link>
           </>
+        )}
 
-        )};
+        {user?.role === "Admin" && (
+          <Link
+            href="/dashboard/campaign-approvals"
+            className="inline-block mt-4 mr-3 border px-4 py-2 rounded"
+          >
+            Campaign Approvals
+          </Link>
+        )}
 
         <button onClick={logoutUser} className="mt-4 bg-red-600 text-white px-4 py-2 rounded">
           Logout

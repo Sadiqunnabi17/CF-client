@@ -30,6 +30,24 @@ export default function DashboardPage() {
             >
               My Campaigns
             </Link>
+            <Link
+              href="/dashboard/creator-home"
+              className="inline-block mt-4 mr-3 border px-4 py-2 rounded"
+            >
+              Contributions To Review
+            </Link>
+            <Link
+              href="/dashboard/withdrawals"
+              className="inline-block mt-4 mr-3 border px-4 py-2 rounded"
+            >
+              Withdrawals
+            </Link>
+            <Link
+              href="/dashboard/payment-history"
+              className="inline-block mt-4 mr-3 border px-4 py-2 rounded"
+            >
+              Payment History
+            </Link>
           </>
         )}
 

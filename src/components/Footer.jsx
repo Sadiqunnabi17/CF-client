@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Github, Linkedin } from "lucide-react";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -10,13 +10,13 @@ export default function Footer() {
         </Link>
         <div className="flex gap-4 text-slate-500">
           <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" rel="noreferrer">
-            <Linkedin className="w-5 h-5 hover:text-slate-800" />
+            <FaLinkedin className="w-5 h-5 hover:text-slate-800" />
           </a>
           <a href="https://facebook.com/YOUR_PROFILE" target="_blank" rel="noreferrer">
-            <Facebook className="w-5 h-5 hover:text-slate-800" />
+            <FaFacebook className="w-5 h-5 hover:text-slate-800" />
           </a>
-          <a href="https://github.com/Sadiqunnabi17" target="_blank" rel="noreferrer">
-            <Github className="w-5 h-5 hover:text-slate-800" />
+          <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer">
+            <FaGithub className="w-5 h-5 hover:text-slate-800" />
           </a>
         </div>
       </div>

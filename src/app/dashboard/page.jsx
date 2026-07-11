@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useAuth } from "@/context/AuthContext";
 
@@ -13,6 +14,27 @@ export default function DashboardPage() {
         <p><strong>Email:</strong> {user?.email}</p>
         <p><strong>Role:</strong> {user?.role}</p>
         <p><strong>Credits:</strong> {user?.credits}</p>
+
+        {user?.role === "Creator" && (
+          <>
+
+            <Link
+              href="/dashboard/add-campaign"
+              className="inline-block mt-4 mr-3 bg-slate-900 text-white px-4 py-2 rounded"
+            >
+              Add New Campaign
+            </Link>
+
+            <Link
+              href="/dashboard/my-campaigns"
+              className="inline-block mt-4 mr-3 border px-4 py-2 rounded"
+            >
+              My Campaigns
+            </Link>
+          </>
+
+        )};
+
         <button onClick={logoutUser} className="mt-4 bg-red-600 text-white px-4 py-2 rounded">
           Logout
         </button>

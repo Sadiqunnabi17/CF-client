@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import PrivateRoute from "@/components/PrivateRoute";
 import axiosInstance from "@/lib/axiosInstance";
 import { useAuth } from "@/context/AuthContext";
+import { uploadToImgBB } from "@/lib/imgbb";
 
 const categories = ["Technology", "Art", "Community", "Health", "Education", "Environment"];
 
@@ -19,10 +20,11 @@ function AddCampaignForm() {
     minimum_contribution: "",
     deadline: "",
     reward_info: "",
-    campaign_image_url: "",
   });
+  const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   if (user && user.role !== "Creator") {
     return (
@@ -39,9 +41,27 @@ function AddCampaignForm() {
   const handleSubmit = async (e) => {
     if (e) e.preventDefault();
     setError("");
+
+    if (!imageFile) {
+      setError("Please select a cover image");
+      return;
+    }
+
     setSubmitting(true);
+    setUploading(true);
+    let campaign_image_url;
     try {
-      await axiosInstance.post("/campaigns", form);
+      campaign_image_url = await uploadToImgBB(imageFile);
+    } catch (err) {
+      setError("Image upload failed, please try again");
+      setSubmitting(false);
+      setUploading(false);
+      return;
+    }
+    setUploading(false);
+
+    try {
+      await axiosInstance.post("/campaigns", { ...form, campaign_image_url });
       toast.success("Campaign submitted for approval!");
       router.push("/dashboard/my-campaigns");
     } catch (err) {
@@ -120,21 +140,22 @@ function AddCampaignForm() {
           onChange={handleChange}
           className="border p-2 rounded"
         />
+
+        <label className="text-sm text-slate-600">Campaign Cover Image</label>
         <input
-          name="campaign_image_url"
-          placeholder="Campaign Cover Image URL"
-          required
-          value={form.campaign_image_url}
-          onChange={handleChange}
-          className="border p-2 rounded"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImageFile(e.target.files[0])}
+          className="border p-2 rounded text-sm"
         />
+
         <button
           type="button"
           onClick={handleSubmit}
           disabled={submitting}
           className="bg-slate-900 text-white p-2 rounded disabled:opacity-50"
         >
-          {submitting ? "Submitting..." : "Add Campaign"}
+          {uploading ? "Uploading image..." : submitting ? "Submitting..." : "Add Campaign"}
         </button>
       </div>
     </div>

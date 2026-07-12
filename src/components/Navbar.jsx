@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import NotificationBell from "./NotificationBell";
 
 export default function Navbar() {
   const { user, logoutUser } = useAuth();
@@ -39,6 +40,7 @@ export default function Navbar() {
               <span className="px-3 py-1 bg-slate-100 rounded-full text-slate-700">
                 {user.credits} Credits
               </span>
+              <NotificationBell />
               <div className="flex items-center gap-2">
                 {user.photoURL && (
                   <img
@@ -55,7 +57,7 @@ export default function Navbar() {
           )}
 
           <a
-            href="https://github.com/Sadiqunnabi17/CF-client.git"
+            href="https://github.com/Sadiqunnabi17/CF-client"
             target="_blank"
             rel="noreferrer"
             className="hover:text-slate-900"

@@ -146,7 +146,7 @@ function AddCampaignForm() {
           type="file"
           accept="image/*"
           onChange={(e) => setImageFile(e.target.files[0])}
-          className="border p-2 rounded text-sm"
+          className="border p-2 rounded text-sm file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-blue-500 file:text-white file:text-xs hover:file:bg-blue-700"
         />
 
         <button

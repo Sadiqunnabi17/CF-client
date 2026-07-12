@@ -48,6 +48,9 @@ export default function DashboardPage() {
             >
               Payment History
             </Link>
+            <Link href="/dashboard/reports" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Reports
+            </Link>
           </>
         )}
 
@@ -68,13 +71,33 @@ export default function DashboardPage() {
             <Link href="/dashboard/manage-campaigns" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
               Manage Campaigns
             </Link>
-           </> 
+            <Link href="/dashboard/reports" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Reports
+            </Link>
+          </>
         )}
 
-            <button onClick={logoutUser} className="mt-4 bg-red-600 text-white px-4 py-2 rounded">
-              Logout
-            </button>
-          </div>
+        {user?.role === "Supporter" && (
+          <>
+            <Link href="/dashboard/supporter-home" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Supporter Home
+            </Link>
+            <Link href="/dashboard/my-contributions" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              My Contributions
+            </Link>
+            <Link href="/dashboard/purchase-credit" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Purchase Credit
+            </Link>
+            <Link href="/dashboard/payment-history" className="inline-block mt-4 mr-3 border px-4 py-2 rounded">
+              Payment History
+            </Link>
+          </>
+        )}
+        
+        <button onClick={logoutUser} className="mt-4 bg-red-600 text-white px-4 py-2 rounded">
+          Logout
+        </button>
+      </div>
     </PrivateRoute>
   );
 }

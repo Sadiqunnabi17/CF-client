@@ -17,7 +17,11 @@ export default function AuthCallback() {
     // Fetch user profile using the token, then store + redirect
     axiosInstance.get("/auth/me").then((res) => {
       loginUser({ token, user: res.data });
-      router.push("/dashboard");
+      if (res.data.needsRoleSelection) {
+        router.push("/select-role");
+      } else {
+        router.push("/dashboard");
+      }
     });
   }, []);
 

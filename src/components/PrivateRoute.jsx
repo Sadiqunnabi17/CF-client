@@ -1,23 +1,30 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export default function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (loading) return;
+    if (!user) {
       router.push("/login");
+      return;
     }
-  }, [loading, user]);
+    if (user.needsRoleSelection && pathname !== "/select-role") {
+      router.push("/select-role");
+    }
+  }, [loading, user, pathname]);
 
   if (loading) {
     return <p className="text-center mt-10">Loading...</p>;
   }
 
-  if (!user) return null; // avoids flashing protected content before redirect fires
+  if (!user) return null;
+  if (user.needsRoleSelection && pathname !== "/select-role") return null;
 
   return children;
 }

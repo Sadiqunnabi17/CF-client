@@ -1,10 +1,10 @@
 "use client";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axiosInstance from "@/lib/axiosInstance";
 import { useAuth } from "@/context/AuthContext";
 
-export default function AuthCallback() {
+function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { loginUser } = useAuth();
@@ -14,7 +14,6 @@ export default function AuthCallback() {
     if (!token) return router.push("/login");
 
     localStorage.setItem("access-token", token);
-    // Fetch user profile using the token, then store + redirect
     axiosInstance.get("/auth/me").then((res) => {
       loginUser({ token, user: res.data });
       if (res.data.needsRoleSelection) {
@@ -26,4 +25,12 @@ export default function AuthCallback() {
   }, []);
 
   return <p className="text-center mt-10">Signing you in...</p>;
+}
+
+export default function AuthCallback() {
+  return (
+    <Suspense fallback={<p className="text-center mt-10">Loading...</p>}>
+      <AuthCallbackContent />
+    </Suspense>
+  );
 }

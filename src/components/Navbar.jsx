@@ -19,7 +19,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
           <Link href="/explore" className="hover:text-slate-900">
             Explore Campaigns
           </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
             </>
           )}
 
-          
+          <a
             href="https://github.com/YOUR_USERNAME/crowdfunding-client"
             target="_blank"
             rel="noreferrer"
@@ -73,7 +73,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile controls: notification bell (if logged in) + hamburger */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           {user && <NotificationBell />}
           <button
             type="button"
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="md:hidden border-t bg-white px-4 py-4 flex flex-col gap-4 text-sm font-medium text-slate-600">
+        <div className="lg:hidden border-t bg-white px-4 py-4 flex flex-col gap-4 text-sm font-medium text-slate-600">
           <Link href="/explore" onClick={closeMobile} className="hover:text-slate-900">
             Explore Campaigns
           </Link>
@@ -137,14 +137,14 @@ export default function Navbar() {
             </>
           )}
 
-          
+          <a
             href="https://github.com/YOUR_USERNAME/crowdfunding-client"
             target="_blank"
             rel="noreferrer"
             className="hover:text-slate-900"
           >
             Join as Developer
-          </a>
+          </a>  
         </div>
       )}
     </nav>

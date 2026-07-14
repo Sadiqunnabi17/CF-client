@@ -118,7 +118,7 @@ function MyCampaignsTable() {
                           <button
                             type="button"
                             onClick={() => saveEdit(c._id)}
-                            className="bg-slate-900 text-white px-3 py-1.5 rounded text-sm"
+                            className="bg-indigo-600 text-white px-3 py-1.5 rounded text-sm"
                           >
                             Save
                           </button>

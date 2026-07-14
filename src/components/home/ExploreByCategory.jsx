@@ -11,7 +11,7 @@ export default function ExploreByCategory() {
           {categories.map((cat) => (
             <span
               key={cat}
-              className="px-5 py-2 bg-white border rounded-full text-slate-700 text-sm font-medium hover:bg-slate-900 hover:text-white transition-colors cursor-pointer"
+              className="px-5 py-2 bg-white border rounded-full text-slate-700 text-sm font-medium hover:bg-indigo-600 hover:text-white transition-colors cursor-pointer"
             >
               {cat}
             </span>

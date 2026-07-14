@@ -63,7 +63,7 @@ function CheckoutForm({ credits, onSuccess }) {
         type="button"
         onClick={handlePay}
         disabled={!stripe || submitting}
-        className="mt-4 w-full bg-slate-900 text-white p-2 rounded disabled:opacity-50"
+        className="mt-4 w-full bg-indigo-600 text-white p-2 rounded disabled:opacity-50"
       >
         {submitting ? "Processing..." : `Pay $${packages.find((p) => p.credits === credits)?.price}`}
       </button>
@@ -113,8 +113,8 @@ function PurchaseCreditContent() {
             key={pkg.credits}
             type="button"
             onClick={() => handleSelect(pkg.credits)}
-            className={`border rounded-lg p-4 text-center hover:border-slate-900 transition-colors ${
-              selectedPackage === pkg.credits ? "border-slate-900 ring-1 ring-slate-900" : ""
+            className={`border rounded-lg p-4 text-center hover:border-indigo-600 transition-colors ${
+              selectedPackage === pkg.credits ? "border-indigo-600 ring-1 ring-slate-900" : ""
             }`}
           >
             <p className="text-xl font-bold">{pkg.credits}</p>

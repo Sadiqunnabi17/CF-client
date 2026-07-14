@@ -33,7 +33,7 @@ export default function SelectRolePage() {
           type="button"
           onClick={() => handleSelect("Supporter")}
           disabled={submitting}
-          className="border p-4 rounded-lg hover:border-slate-900 text-left"
+          className="border p-4 rounded-lg hover:border-indigo-600 text-left"
         >
           <p className="font-semibold">Supporter</p>
           <p className="text-slate-500 text-sm">Discover and fund campaigns · Starts with 50 credits</p>
@@ -42,7 +42,7 @@ export default function SelectRolePage() {
           type="button"
           onClick={() => handleSelect("Creator")}
           disabled={submitting}
-          className="border p-4 rounded-lg hover:border-slate-900 text-left"
+          className="border p-4 rounded-lg hover:border-indigo-600 text-left"
         >
           <p className="font-semibold">Creator</p>
           <p className="text-slate-500 text-sm">Launch and manage campaigns · Starts with 20 credits</p>

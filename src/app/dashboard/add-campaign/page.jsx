@@ -153,7 +153,7 @@ function AddCampaignForm() {
           type="button"
           onClick={handleSubmit}
           disabled={submitting}
-          className="bg-slate-900 text-white p-2 rounded disabled:opacity-50"
+          className="bg-indigo-600 text-white p-2 rounded disabled:opacity-50"
         >
           {uploading ? "Uploading image..." : submitting ? "Submitting..." : "Add Campaign"}
         </button>

@@ -44,7 +44,7 @@ export default function ExplorePage() {
                 </p>
                 <Link
                   href={`/campaign-details/${c._id}`}
-                  className="inline-block mt-3 bg-slate-900 text-white px-4 py-2 rounded text-sm"
+                  className="inline-block mt-3 bg-indigo-600 text-white px-4 py-2 rounded text-sm"
                 >
                   View Details
                 </Link>

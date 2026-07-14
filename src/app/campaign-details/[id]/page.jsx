@@ -146,7 +146,7 @@ export default function CampaignDetailsPage() {
             type="button"
             onClick={handleContribute}
             disabled={submitting}
-            className="bg-slate-900 text-white px-5 py-2 rounded disabled:opacity-50"
+            className="bg-indigo-600 text-white px-5 py-2 rounded disabled:opacity-50"
           >
             {submitting ? "Submitting..." : "Contribute"}
           </button>

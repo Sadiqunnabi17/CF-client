@@ -21,7 +21,7 @@ export default function DashboardPage() {
           <div className="flex flex-wrap gap-2 sm:gap-3 mt-4">
             <Link
               href="/dashboard/add-campaign"
-              className="bg-slate-900 text-white px-3 py-2 sm:px-4 rounded text-sm"
+              className="bg-indigo-600 text-white px-3 py-2 sm:px-4 rounded text-sm"
             >
               Add New Campaign
             </Link>

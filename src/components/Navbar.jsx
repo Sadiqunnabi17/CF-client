@@ -31,7 +31,7 @@ export default function Navbar() {
               </Link>
               <Link
                 href="/register"
-                className="bg-slate-900 text-white px-4 py-2 rounded-md hover:bg-slate-700"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
               >
                 Register
               </Link>
@@ -101,7 +101,7 @@ export default function Navbar() {
               <Link
                 href="/register"
                 onClick={closeMobile}
-                className="bg-slate-900 text-white px-4 py-2 rounded-md text-center"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md text-center"
               >
                 Register
               </Link>

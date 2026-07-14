@@ -17,19 +17,21 @@ export default function ExplorePage() {
   if (loading) return <p className="text-center mt-10">Loading campaigns...</p>;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 mb-16">
-      <h1 className="text-2xl font-bold text-slate-800 mb-8">Explore Campaigns</h1>
+    <div className="max-w-6xl mx-auto px-4 py-6 sm:py-10 mb-16">
+      <h1 className="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8">
+        Explore Campaigns
+      </h1>
 
       {campaigns.length === 0 ? (
         <p className="text-slate-500">No active campaigns right now — check back soon.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {campaigns.map((c) => (
             <div key={c._id} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
               <img
                 src={c.campaign_image_url}
                 alt={c.campaign_title}
-                className="w-full h-40 object-cover"
+                className="w-full h-36 sm:h-40 object-cover"
               />
               <div className="p-4">
                 <h3 className="font-semibold text-slate-800">{c.campaign_title}</h3>

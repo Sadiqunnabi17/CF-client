@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { FaGoogle } from "react-icons/fa";
+import { Eye, EyeOff } from "lucide-react";
 import axiosInstance from "@/lib/axiosInstance";
 import { useAuth } from "@/context/AuthContext";
 import { uploadToImgBB } from "@/lib/imgbb";
@@ -14,6 +16,7 @@ export default function RegisterPage() {
     role: "Supporter",
   });
   const [imageFile, setImageFile] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -67,10 +70,28 @@ export default function RegisterPage() {
           type="file"
           accept="image/*"
           onChange={(e) => setImageFile(e.target.files[0])}
-          className="border p-2 rounded text-sm file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-blue-500 file:text-white file:text-xs hover:file:bg-blue-700"
+          className="border p-2 rounded text-sm file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-indigo-600 file:text-white file:text-xs hover:file:bg-indigo-700"
         />
 
-        <input name="password" type="password" placeholder="Password" required onChange={handleChange} className="border p-2 rounded" />
+        <div className="relative">
+          <input
+            name="password"
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            required
+            onChange={handleChange}
+            className="border p-2 rounded w-full pr-10"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((s) => !s)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            tabIndex={-1}
+          >
+            {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+          </button>
+        </div>
+
         <select name="role" onChange={handleChange} className="border p-2 rounded">
           <option value="Supporter">Supporter</option>
           <option value="Creator">Creator</option>
@@ -78,12 +99,16 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={uploading}
-          className="bg-blue-600 text-white p-2 rounded disabled:opacity-50"
+          className="bg-indigo-600 text-white p-2 rounded disabled:opacity-50 hover:bg-indigo-700"
         >
           {uploading ? "Uploading image..." : "Register"}
         </button>
       </form>
-      <button onClick={handleGoogleSignIn} className="mt-3 w-full border p-2 rounded">
+      <button
+        onClick={handleGoogleSignIn}
+        className="mt-3 w-full border p-2 rounded flex items-center justify-center gap-2 hover:bg-slate-50"
+      >
+        <FaGoogle className="w-4 h-4 text-red-500" />
         Continue with Google
       </button>
     </div>

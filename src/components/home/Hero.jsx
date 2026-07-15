@@ -9,17 +9,17 @@ const slides = [
   {
     title: "Fund Ideas That Matter",
     subtitle: "Back creators and causes with as little as a few credits.",
-    bg: "from-slate-900 to-slate-700",
+    bg: "from-indigo-900 to-indigo-700",
   },
   {
     title: "Launch Your Own Campaign",
     subtitle: "Turn your project into reality with community support.",
-    bg: "from-slate-800 to-slate-600",
+    bg: "from-indigo-800 to-indigo-600",
   },
   {
     title: "Transparent. Trusted. Simple.",
     subtitle: "Every campaign is reviewed before it goes live.",
-    bg: "from-slate-900 to-slate-800",
+    bg: "from-indigo-900 to-indigo-800",
   },
 ];
 

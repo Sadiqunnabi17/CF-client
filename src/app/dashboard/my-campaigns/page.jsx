@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import PrivateRoute from "@/components/PrivateRoute";
 import axiosInstance from "@/lib/axiosInstance";
 import { useAuth } from "@/context/AuthContext";
+import Link from "next/link";
 
 function MyCampaignsTable() {
   const { user } = useAuth();
@@ -71,7 +72,15 @@ function MyCampaignsTable() {
 
   return (
     <div className="max-w-5xl mx-auto mt-10 p-6 mb-16">
-      <h1 className="text-2xl font-bold mb-6">My Campaigns</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-bold">My Campaigns</h1>
+        <Link
+          href="/dashboard/add-campaign"
+          className="bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700"
+        >
+          + Add New Campaign
+        </Link>
+      </div>
 
       {campaigns.length === 0 ? (
         <p className="text-slate-500">You haven't added any campaigns yet.</p>
@@ -141,13 +150,12 @@ function MyCampaignsTable() {
                       <td className="p-3">{new Date(c.deadline).toLocaleDateString()}</td>
                       <td className="p-3">
                         <span
-                          className={`px-2 py-1 rounded text-xs font-medium ${
-                            c.status === "approved"
+                          className={`px-2 py-1 rounded text-xs font-medium ${c.status === "approved"
                               ? "bg-green-100 text-green-700"
                               : c.status === "rejected"
-                              ? "bg-red-100 text-red-700"
-                              : "bg-yellow-100 text-yellow-700"
-                          }`}
+                                ? "bg-red-100 text-red-700"
+                                : "bg-yellow-100 text-yellow-700"
+                            }`}
                         >
                           {c.status}
                         </span>

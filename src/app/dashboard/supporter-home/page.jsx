@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import PrivateRoute from "@/components/PrivateRoute";
 import axiosInstance from "@/lib/axiosInstance";
 import { useAuth } from "@/context/AuthContext";
+import Link from "next/link";
 
 function SupporterHomeContent() {
   const { user } = useAuth();
@@ -36,7 +37,15 @@ function SupporterHomeContent() {
 
   return (
     <div className="max-w-5xl mx-auto mt-10 p-6 mb-16">
-      <h1 className="text-2xl font-bold mb-6">Supporter Home</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-bold">Supporter Home</h1>
+        <Link
+          href="/explore"
+          className="bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700"
+        >
+          Browse Campaigns
+        </Link>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
         <div className="border rounded-lg p-4 text-center">

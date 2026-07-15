@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 import { Eye, EyeOff } from "lucide-react";
@@ -15,8 +16,10 @@ export default function RegisterPage() {
     password: "",
     role: "Supporter",
   });
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -29,6 +32,11 @@ export default function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    if (form.password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
     let photoURL = "";
     if (imageFile) {
@@ -58,7 +66,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg">
+    <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg mb-16">
       <h1 className="text-2xl font-bold mb-4">Register</h1>
       {error && <p className="text-red-500 mb-3">{error}</p>}
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -92,6 +100,25 @@ export default function RegisterPage() {
           </button>
         </div>
 
+        <div className="relative">
+          <input
+            type={showConfirmPassword ? "text" : "password"}
+            placeholder="Confirm Password"
+            required
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="border p-2 rounded w-full pr-10"
+          />
+          <button
+            type="button"
+            onClick={() => setShowConfirmPassword((s) => !s)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+            tabIndex={-1}
+          >
+            {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+          </button>
+        </div>
+
         <select name="role" onChange={handleChange} className="border p-2 rounded">
           <option value="Supporter">Supporter</option>
           <option value="Creator">Creator</option>
@@ -111,6 +138,12 @@ export default function RegisterPage() {
         <FaGoogle className="w-4 h-4 text-red-500" />
         Continue with Google
       </button>
+      <p className="text-center text-sm text-slate-500 mt-4">
+        Already have an account?{" "}
+        <Link href="/login" className="text-indigo-600 hover:underline">
+          Login
+        </Link>
+      </p>
     </div>
   );
 }

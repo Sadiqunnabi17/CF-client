@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 import { Eye, EyeOff } from "lucide-react";
@@ -71,6 +72,12 @@ export default function LoginPage() {
         <FaGoogle className="w-4 h-4 text-red-500" />
         Continue with Google
       </button>
+      <p className="text-center text-sm text-slate-500 mt-4">
+        Don't have an account?{" "}
+        <Link href="/register" className="text-indigo-600 hover:underline">
+          Register
+        </Link>
+      </p>
     </div>
   );
 }

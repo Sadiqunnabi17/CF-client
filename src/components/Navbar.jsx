@@ -20,16 +20,16 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
-          <Link href="/" className="hover:text-slate-900">
+          <Link href="/" className="hover:text-indigo-600">
             Home
           </Link>
-          <Link href="/explore" className="hover:text-slate-900">
+          <Link href="/explore" className="hover:text-indigo-600">
             Explore Campaigns
           </Link>
 
           {!user && (
             <>
-              <Link href="/login" className="hover:text-slate-900">
+              <Link href="/login" className="hover:text-indigo-600">
                 Login
               </Link>
               <Link
@@ -43,7 +43,7 @@ export default function Navbar() {
 
           {user && (
             <>
-              <Link href="/dashboard" className="hover:text-slate-900">
+              <Link href="/dashboard" className="hover:text-indigo-600">
                 Dashboard
               </Link>
               <span className="px-3 py-1 bg-slate-100 rounded-full text-slate-700">
@@ -58,7 +58,7 @@ export default function Navbar() {
                     className="w-8 h-8 rounded-full object-cover"
                   />
                 )}
-                <button onClick={logoutUser} className="hover:text-slate-900">
+                <button onClick={logoutUser} className="hover:text-indigo-600">
                   Logout
                 </button>
               </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
             href="https://github.com/Sadiqunnabi17/CF-client.git"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-slate-900"
+            className="hover:text-indigo-600"
           >
             Join as Developer
           </a>
@@ -92,16 +92,16 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div className="lg:hidden border-t bg-white px-4 py-4 flex flex-col gap-4 text-sm font-medium text-slate-600">
-          <Link href="/" onClick={closeMobile} className="hover:text-slate-900">
+          <Link href="/" onClick={closeMobile} className="hover:text-indigo-600">
             Home
           </Link>
-          <Link href="/explore" onClick={closeMobile} className="hover:text-slate-900">
+          <Link href="/explore" onClick={closeMobile} className="hover:text-indigo-600">
             Explore Campaigns
           </Link>
 
           {!user && (
             <>
-              <Link href="/login" onClick={closeMobile} className="hover:text-slate-900">
+              <Link href="/login" onClick={closeMobile} className="hover:text-indigo-600">
                 Login
               </Link>
               <Link
@@ -116,7 +116,7 @@ export default function Navbar() {
 
           {user && (
             <>
-              <Link href="/dashboard" onClick={closeMobile} className="hover:text-slate-900">
+              <Link href="/dashboard" onClick={closeMobile} className="hover:text-indigo-600">
                 Dashboard
               </Link>
               <div className="flex items-center gap-3">
@@ -136,7 +136,7 @@ export default function Navbar() {
                   closeMobile();
                   logoutUser();
                 }}
-                className="text-left hover:text-slate-900"
+                className="text-left hover:text-indigo-600"
               >
                 Logout
               </button>
@@ -147,7 +147,7 @@ export default function Navbar() {
             href="https://github.com/Sadiqunnabi17/CF-client.git"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-slate-900"
+            className="hover:text-indigo-600"
           >
             Join as Developer
           </a>

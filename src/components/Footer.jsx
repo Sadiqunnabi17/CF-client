@@ -41,7 +41,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t text-center text-xs text-slate-400 py-4">
-        © {new Date().getFullYear()} FundRise. Built for Programming Hero Assignment 11.
+        © {new Date().getFullYear()} FundRise. All Rights Reserved.
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import axiosInstance from "@/lib/axiosInstance";
 import { useAuth } from "@/context/AuthContext";
@@ -14,6 +15,7 @@ export default function CampaignDetailsPage() {
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [justContributed, setJustContributed] = useState(false);
 
   const [showReportForm, setShowReportForm] = useState(false);
   const [reportReason, setReportReason] = useState("");
@@ -51,6 +53,7 @@ export default function CampaignDetailsPage() {
       });
       toast.success("Contribution submitted! Awaiting Creator approval.");
       setAmount("");
+      setJustContributed(true);
     } catch (err) {
       setError(err.response?.data?.message || "Contribution failed");
     } finally {
@@ -133,6 +136,19 @@ export default function CampaignDetailsPage() {
       <div className="mt-8 p-4 sm:p-6 border rounded-lg">
         <h2 className="font-semibold text-slate-800 mb-3">Contribute to this campaign</h2>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+
+        {justContributed && (
+          <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm rounded-lg p-3 mb-3 flex items-center justify-between flex-wrap gap-2">
+            <span>Thanks for your support! Your contribution is awaiting Creator approval.</span>
+            <Link
+              href="/explore"
+              className="bg-indigo-600 text-white px-3 py-1.5 rounded text-xs hover:bg-indigo-700 whitespace-nowrap"
+            >
+              Browse More Campaigns
+            </Link>
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="number"
@@ -146,7 +162,7 @@ export default function CampaignDetailsPage() {
             type="button"
             onClick={handleContribute}
             disabled={submitting}
-            className="bg-indigo-600 text-white px-5 py-2 rounded disabled:opacity-50"
+            className="bg-indigo-600 text-white px-5 py-2 rounded disabled:opacity-50 hover:bg-indigo-700"
           >
             {submitting ? "Submitting..." : "Contribute"}
           </button>

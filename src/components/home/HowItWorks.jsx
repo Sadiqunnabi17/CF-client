@@ -8,12 +8,14 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
+    <section className="max-w-6xl mx-auto px-4 py-10 md:py-16">
       <h2 className="text-2xl font-bold text-slate-800 mb-8 text-center">How It Works</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {steps.map((s, i) => (
           <div key={i} className="text-center">
-            <s.icon className="w-10 h-10 mx-auto text-slate-800 mb-3" />
+            <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-indigo-100 flex items-center justify-center">
+              <s.icon className="w-7 h-7 text-indigo-600" />
+            </div>
             <h3 className="font-semibold text-slate-800">{s.title}</h3>
             <p className="text-slate-500 text-sm mt-1">{s.desc}</p>
           </div>

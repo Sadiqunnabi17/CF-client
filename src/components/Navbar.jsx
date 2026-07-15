@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="border-b bg-white sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-slate-800" onClick={closeMobile}>
+        <Link href="/" className="text-xl font-bold text-indigo-600" onClick={closeMobile}>
           FundRise
         </Link>
 

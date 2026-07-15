@@ -63,7 +63,7 @@ export default function Navbar() {
           )}
 
           <a
-            href="https://github.com/YOUR_USERNAME/crowdfunding-client"
+            href="https://github.com/Sadiqunnabi17/CF-client.git"
             target="_blank"
             rel="noreferrer"
             className="hover:text-slate-900"
@@ -138,7 +138,7 @@ export default function Navbar() {
           )}
 
           <a
-            href="https://github.com/YOUR_USERNAME/crowdfunding-client"
+            href="https://github.com/Sadiqunnabi17/CF-client.git"
             target="_blank"
             rel="noreferrer"
             className="hover:text-slate-900"

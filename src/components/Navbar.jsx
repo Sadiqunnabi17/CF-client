@@ -101,7 +101,7 @@ export default function Navbar() {
               <Link
                 href="/register"
                 onClick={closeMobile}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md text-center"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md text-center hover:bg-indigo-700 max-w-[160px]"
               >
                 Register
               </Link>

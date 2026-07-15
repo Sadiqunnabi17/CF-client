@@ -27,10 +27,12 @@ body {
 
 a[class*="rounded"],
 button[class*="rounded"] {
-  transition: opacity 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, filter 0.15s ease-in-out;
 }
 
 a[class*="rounded"]:hover,
-button[class*="rounded"]:hover {
-  opacity: 0.88;
+button[class*="rounded"]:not(:disabled):hover {
+  transform: translateY(-1px);
+  filter: brightness(0.93);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
 }

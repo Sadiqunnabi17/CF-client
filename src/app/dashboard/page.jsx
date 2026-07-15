@@ -9,7 +9,7 @@ export default function DashboardPage() {
   return (
     <PrivateRoute>
       <div className="max-w-2xl mx-auto mt-6 sm:mt-10 p-4 sm:p-6 border rounded-lg mb-16">
-        <h1 className="text-xl sm:text-2xl font-bold mb-4">Dashboard (placeholder)</h1>
+        <h1 className="text-xl sm:text-2xl font-bold mb-4">Dashboard</h1>
         <div className="text-sm sm:text-base space-y-1">
           <p><strong>Name:</strong> {user?.name}</p>
           <p><strong>Email:</strong> {user?.email}</p>

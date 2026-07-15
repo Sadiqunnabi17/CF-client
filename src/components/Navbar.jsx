@@ -20,6 +20,9 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
+          <Link href="/" className="hover:text-slate-900">
+            Home
+          </Link>
           <Link href="/explore" className="hover:text-slate-900">
             Explore Campaigns
           </Link>
@@ -89,6 +92,9 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div className="lg:hidden border-t bg-white px-4 py-4 flex flex-col gap-4 text-sm font-medium text-slate-600">
+          <Link href="/" onClick={closeMobile} className="hover:text-slate-900">
+            Home
+          </Link>
           <Link href="/explore" onClick={closeMobile} className="hover:text-slate-900">
             Explore Campaigns
           </Link>
@@ -144,7 +150,7 @@ export default function Navbar() {
             className="hover:text-slate-900"
           >
             Join as Developer
-          </a>  
+          </a>
         </div>
       )}
     </nav>

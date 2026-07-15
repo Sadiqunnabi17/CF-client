@@ -3,6 +3,7 @@ import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axiosInstance from "@/lib/axiosInstance";
+import CampaignCard from "@/components/CampaignCard";
 
 function ExploreContent() {
   const searchParams = useSearchParams();
@@ -27,9 +28,14 @@ function ExploreContent() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-6 sm:py-10 mb-16">
       <div className="flex items-center justify-between flex-wrap gap-2 mb-6 sm:mb-8">
-        <h1 className="text-xl sm:text-2xl font-bold text-slate-800">
-          {activeCategory ? `${activeCategory} Campaigns` : "Explore Campaigns"}
-        </h1>
+        <div>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">
+            {activeCategory ? `${activeCategory} Campaigns` : "Explore Campaigns"}
+          </h1>
+          <p className="text-slate-500 text-sm mt-1">
+            Discover and support meaningful causes creating real impact
+          </p>
+        </div>
         {activeCategory && (
           <Link href="/explore" className="text-sm text-indigo-600 underline">
             Clear filter
@@ -46,29 +52,7 @@ function ExploreContent() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filtered.map((c) => (
-            <div key={c._id} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-              <img
-                src={c.campaign_image_url}
-                alt={c.campaign_title}
-                className="w-full h-36 sm:h-40 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-semibold text-slate-800">{c.campaign_title}</h3>
-                <p className="text-slate-500 text-sm mt-1">by {c.creator_name}</p>
-                <p className="text-slate-500 text-sm">
-                  Deadline: {new Date(c.deadline).toLocaleDateString()}
-                </p>
-                <p className="text-slate-700 text-sm mt-1">
-                  {c.amount_raised} / {c.funding_goal} credits raised
-                </p>
-                <Link
-                  href={`/campaign-details/${c._id}`}
-                  className="inline-block mt-3 bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
+            <CampaignCard key={c._id} campaign={c} />
           ))}
         </div>
       )}

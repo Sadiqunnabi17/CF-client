@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+a[class*="rounded"],
+button[class*="rounded"] {
+  transition: opacity 0.15s ease-in-out;
+}
+
+a[class*="rounded"]:hover,
+button[class*="rounded"]:hover {
+  opacity: 0.88;
+}

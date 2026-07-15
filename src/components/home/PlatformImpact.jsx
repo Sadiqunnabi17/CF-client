@@ -13,7 +13,7 @@ export default function PlatformImpact() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
         {stats.map((s) => (
           <div key={s.label}>
-            <p className="text-3xl font-bold text-slate-900">{s.value}</p>
+            <p className="text-3xl font-bold text-indigo-700">{s.value}</p>
             <p className="text-slate-500 mt-1">{s.label}</p>
           </div>
         ))}

@@ -17,6 +17,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-slate-800 mb-2 text-sm">Quick Links</h3>
           <ul className="text-slate-500 text-sm space-y-1">
+            <li><Link href="/" className="hover:text-indigo-600">Home</Link></li>
             <li><Link href="/explore" className="hover:text-indigo-600">Explore Campaigns</Link></li>
             <li><Link href="/register" className="hover:text-indigo-600">Become a Creator</Link></li>
             <li><Link href="/login" className="hover:text-indigo-600">Login</Link></li>
@@ -32,7 +33,7 @@ export default function Footer() {
             <a href="https://facebook.com/YOUR_PROFILE" target="_blank" rel="noreferrer">
               <FaFacebook className="w-5 h-5 hover:text-indigo-600" />
             </a>
-            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer">
+            <a href="https://github.com/sadiqunnabi17" target="_blank" rel="noreferrer">
               <FaGithub className="w-5 h-5 hover:text-indigo-600" />
             </a>
           </div>
